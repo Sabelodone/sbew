@@ -1,0 +1,1471 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="SBEW Projects (Pty) Ltd — Developing innovative bakery machinery and production solutions designed to improve efficiency and simplify bread production."
+    >
+
+    <meta
+        name="theme-color"
+        content="#061827"
+    >
+
+    <title>SBEW Projects (Pty) Ltd | Bakery Machinery & Production Solutions</title>
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =========================================================
+           GLOBAL RESET
+        ========================================================= */
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Inter", sans-serif;
+            background: #061827;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* =========================================================
+           BRAND VARIABLES
+        ========================================================= */
+
+        :root {
+            --navy: #061827;
+            --navy-light: #0a2235;
+            --navy-lighter: #102d43;
+            --gold: #d9a72e;
+            --gold-light: #f4ce65;
+            --gold-dark: #a87916;
+            --white: #ffffff;
+            --muted: #aebbc6;
+            --border: rgba(255, 255, 255, 0.10);
+        }
+
+        /* =========================================================
+           PAGE
+        ========================================================= */
+
+        .page {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            isolation: isolate;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(217, 167, 46, 0.08),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 15% 80%,
+                    rgba(15, 69, 103, 0.35),
+                    transparent 35%
+                ),
+
+                var(--navy);
+        }
+
+        /* =========================================================
+           BACKGROUND GLOW
+        ========================================================= */
+
+        .page::before {
+            content: "";
+            position: absolute;
+            width: 650px;
+            height: 650px;
+            top: -300px;
+            right: -200px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(217, 167, 46, 0.14),
+                    transparent 70%
+                );
+
+            z-index: -2;
+        }
+
+        .page::after {
+            content: "";
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            bottom: -400px;
+            left: -300px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(14, 70, 104, 0.45),
+                    transparent 70%
+                );
+
+            z-index: -2;
+        }
+
+        /* =========================================================
+           GRID
+        ========================================================= */
+
+        .grid {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            opacity: 0.16;
+
+            background-image:
+
+                linear-gradient(
+                    rgba(255, 255, 255, 0.04) 1px,
+                    transparent 1px
+                ),
+
+                linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.04) 1px,
+                    transparent 1px
+                );
+
+            background-size: 70px 70px;
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent 90%
+                );
+        }
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        header {
+            width: 100%;
+            padding: 28px 6%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            animation:
+                fadeDown 0.9s ease forwards;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-line {
+            width: 3px;
+            height: 30px;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    var(--gold-light),
+                    var(--gold-dark)
+                );
+        }
+
+        .brand-text {
+            font-family: "Montserrat", sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+
+            color: var(--muted);
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: var(--gold);
+
+            box-shadow:
+                0 0 8px rgba(217,167,46,0.8),
+                0 0 18px rgba(217,167,46,0.4);
+
+            animation:
+                pulse 2s infinite;
+        }
+
+        /* =========================================================
+           MAIN
+        ========================================================= */
+
+        main {
+            flex: 1;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 45px 6% 65px;
+        }
+
+        .content {
+            width: min(1150px, 100%);
+
+            display: grid;
+
+            grid-template-columns:
+                0.85fr
+                1.15fr;
+
+            gap: 80px;
+
+            align-items: center;
+        }
+
+        /* =========================================================
+           LOGO
+        ========================================================= */
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            animation:
+                fadeUp 1s ease 0.15s both;
+        }
+
+        .logo-wrapper {
+            position: relative;
+
+            width: min(420px, 85vw);
+
+            aspect-ratio: 1 / 1;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-wrapper::before {
+            content: "";
+
+            position: absolute;
+
+            width: 82%;
+            height: 82%;
+
+            border-radius: 50%;
+
+            border:
+                1px solid
+                rgba(217, 167, 46, 0.20);
+
+            animation:
+                rotate 20s linear infinite;
+        }
+
+        .logo-wrapper::after {
+            content: "";
+
+            position: absolute;
+
+            width: 94%;
+            height: 94%;
+
+            border-radius: 50%;
+
+            border:
+                1px dashed
+                rgba(255,255,255,0.08);
+
+            animation:
+                rotateReverse 30s linear infinite;
+        }
+
+        .logo {
+            position: relative;
+            z-index: 2;
+
+            width: 76%;
+            height: auto;
+
+            object-fit: contain;
+
+            filter:
+                drop-shadow(
+                    0 25px 45px rgba(0,0,0,0.40)
+                );
+        }
+
+        /* =========================================================
+           TEXT
+        ========================================================= */
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+
+            margin-bottom: 24px;
+
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+
+            color: var(--gold-light);
+
+            animation:
+                fadeUp 0.9s ease 0.3s both;
+        }
+
+        .eyebrow::before {
+            content: "";
+
+            width: 35px;
+            height: 1px;
+
+            background: var(--gold);
+        }
+
+        h1 {
+            max-width: 700px;
+
+            font-family: "Montserrat", sans-serif;
+
+            font-size:
+                clamp(
+                    44px,
+                    6vw,
+                    78px
+                );
+
+            line-height: 1.02;
+
+            letter-spacing: -3px;
+
+            font-weight: 800;
+
+            animation:
+                fadeUp 0.9s ease 0.4s both;
+        }
+
+        h1 span {
+            display: block;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--gold),
+                    var(--gold-light)
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+        }
+
+        .description {
+            max-width: 600px;
+
+            margin-top: 27px;
+
+            color: var(--muted);
+
+            font-size: 16px;
+
+            line-height: 1.8;
+
+            animation:
+                fadeUp 0.9s ease 0.5s both;
+        }
+
+        /* =========================================================
+           PROGRESS
+        ========================================================= */
+
+        .progress-container {
+            max-width: 530px;
+
+            margin-top: 38px;
+
+            animation:
+                fadeUp 0.9s ease 0.6s both;
+        }
+
+        .progress-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin-bottom: 11px;
+        }
+
+        .progress-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+
+            color:
+                rgba(255,255,255,0.65);
+        }
+
+        .progress-value {
+            font-size: 11px;
+            font-weight: 700;
+
+            color: var(--gold-light);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 5px;
+
+            background:
+                rgba(255,255,255,0.08);
+
+            border-radius: 20px;
+
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 72%;
+            height: 100%;
+
+            border-radius: inherit;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--gold-dark),
+                    var(--gold-light)
+                );
+
+            box-shadow:
+                0 0 12px rgba(217,167,46,0.35);
+
+            animation:
+                progress 1.8s ease 0.8s both;
+        }
+
+        /* =========================================================
+           BUTTONS
+        ========================================================= */
+
+        .actions {
+            display: flex;
+            align-items: center;
+
+            gap: 18px;
+
+            margin-top: 38px;
+
+            animation:
+                fadeUp 0.9s ease 0.7s both;
+        }
+
+        .btn {
+            position: relative;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 12px;
+
+            padding: 15px 25px;
+
+            border-radius: 4px;
+
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+
+            text-decoration: none;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                background 0.25s ease;
+        }
+
+        /* =========================================================
+           GET IN TOUCH
+        ========================================================= */
+
+        .btn-primary {
+            color: #071724;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--gold-light),
+                    var(--gold)
+                );
+
+            box-shadow:
+                0 10px 30px
+                rgba(217,167,46,0.16);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 15px 40px
+                rgba(217,167,46,0.30);
+        }
+
+        /* =========================================================
+           GLOWING COMING SOON BUTTON
+        ========================================================= */
+
+        .btn-secondary {
+            color: #ffffff;
+
+            border:
+                1px solid
+                rgba(217,167,46,0.55);
+
+            background:
+                rgba(217,167,46,0.04);
+
+            box-shadow:
+                0 0 8px
+                rgba(217,167,46,0.18),
+
+                inset 0 0 8px
+                rgba(217,167,46,0.04);
+
+            animation:
+                comingSoonGlow 2.2s ease-in-out infinite;
+        }
+
+        .btn-secondary::before {
+            content: "";
+
+            position: absolute;
+
+            inset: -2px;
+
+            border-radius: 5px;
+
+            border:
+                1px solid
+                rgba(217,167,46,0.30);
+
+            opacity: 0;
+
+            animation:
+                borderGlow 2.2s ease-in-out infinite;
+
+            pointer-events: none;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+
+            color: #071724;
+
+            background:
+                var(--gold-light);
+
+            border-color:
+                var(--gold-light);
+
+            box-shadow:
+                0 0 18px
+                rgba(217,167,46,0.60),
+
+                0 10px 35px
+                rgba(217,167,46,0.25);
+
+            animation: none;
+        }
+
+        .arrow {
+            transition:
+                transform 0.25s ease;
+        }
+
+        .btn:hover .arrow {
+            transform: translateX(4px);
+        }
+
+        /* =========================================================
+           CONTACT INFORMATION
+        ========================================================= */
+
+        .contact-card {
+            max-width: 600px;
+
+            margin-top: 42px;
+
+            padding: 22px 24px;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 18px 30px;
+
+            background:
+                rgba(255,255,255,0.025);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            border-radius: 6px;
+
+            animation:
+                fadeUp 0.9s ease 0.8s both;
+
+            backdrop-filter:
+                blur(10px);
+        }
+
+        .company-name {
+            grid-column: 1 / -1;
+
+            font-family: "Montserrat", sans-serif;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            color: #ffffff;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+
+            gap: 12px;
+        }
+
+        .contact-icon {
+            flex-shrink: 0;
+
+            width: 30px;
+            height: 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 4px;
+
+            background:
+                rgba(217,167,46,0.10);
+
+            color:
+                var(--gold-light);
+
+            font-size: 13px;
+        }
+
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+
+            gap: 4px;
+        }
+
+        .contact-label {
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            color:
+                rgba(255,255,255,0.40);
+        }
+
+        .contact-value {
+            font-size: 12px;
+
+            line-height: 1.5;
+
+            color:
+                rgba(255,255,255,0.78);
+
+            text-decoration: none;
+        }
+
+        a.contact-value:hover {
+            color: var(--gold-light);
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            width: 100%;
+
+            padding: 22px 6%;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,0.07);
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 20px;
+
+            animation:
+                fadeUp 1s ease 0.9s both;
+        }
+
+        .copyright {
+            font-size: 10px;
+
+            color:
+                rgba(255,255,255,0.40);
+
+            letter-spacing: 0.5px;
+        }
+
+        .footer-tagline {
+            font-size: 9px;
+
+            font-weight: 600;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            color:
+                rgba(255,255,255,0.32);
+        }
+
+        /* =========================================================
+           DECORATIVE CORNER
+        ========================================================= */
+
+        .corner {
+            position: absolute;
+
+            width: 120px;
+            height: 120px;
+
+            bottom: 0;
+            right: 0;
+
+            border-top:
+                1px solid
+                rgba(217,167,46,0.25);
+
+            border-left:
+                1px solid
+                rgba(217,167,46,0.25);
+
+            opacity: 0.6;
+        }
+
+        /* =========================================================
+           ANIMATIONS
+        ========================================================= */
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        @keyframes fadeDown {
+
+            from {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.4;
+                transform: scale(0.75);
+            }
+
+        }
+
+        @keyframes rotate {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+        @keyframes rotateReverse {
+
+            from {
+                transform: rotate(360deg);
+            }
+
+            to {
+                transform: rotate(0deg);
+            }
+
+        }
+
+        @keyframes progress {
+
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 72%;
+            }
+
+        }
+
+        /* =========================================================
+           COMING SOON GLOW
+        ========================================================= */
+
+        @keyframes comingSoonGlow {
+
+            0%,
+            100% {
+
+                box-shadow:
+                    0 0 6px
+                    rgba(217,167,46,0.20),
+
+                    0 0 15px
+                    rgba(217,167,46,0.10),
+
+                    inset 0 0 5px
+                    rgba(217,167,46,0.04);
+            }
+
+            50% {
+
+                box-shadow:
+                    0 0 12px
+                    rgba(217,167,46,0.55),
+
+                    0 0 28px
+                    rgba(217,167,46,0.28),
+
+                    inset 0 0 10px
+                    rgba(217,167,46,0.10);
+            }
+
+        }
+
+        @keyframes borderGlow {
+
+            0%,
+            100% {
+                opacity: 0;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.04);
+            }
+
+        }
+
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media (max-width: 950px) {
+
+            .content {
+
+                grid-template-columns: 1fr;
+
+                gap: 25px;
+
+                text-align: center;
+            }
+
+            .logo-section {
+                order: 1;
+            }
+
+            .text-section {
+                order: 2;
+            }
+
+            .logo-wrapper {
+                width: min(300px, 70vw);
+            }
+
+            .eyebrow {
+                justify-content: center;
+            }
+
+            .eyebrow::before {
+                display: none;
+            }
+
+            h1 {
+                margin-inline: auto;
+            }
+
+            .description {
+                margin-inline: auto;
+            }
+
+            .progress-container {
+                margin-inline: auto;
+                text-align: left;
+            }
+
+            .actions {
+                justify-content: center;
+            }
+
+            .contact-card {
+                margin-inline: auto;
+                text-align: left;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+
+        }
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 22px 5%;
+            }
+
+            .status {
+                display: none;
+            }
+
+            main {
+                padding: 25px 5% 50px;
+            }
+
+            .logo-wrapper {
+                width: 235px;
+            }
+
+            h1 {
+                font-size: 43px;
+                letter-spacing: -2px;
+            }
+
+            .description {
+                font-size: 14px;
+                line-height: 1.7;
+            }
+
+            .actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .contact-card {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+
+            .company-name {
+                text-align: center;
+            }
+
+            footer {
+                padding: 20px 5%;
+            }
+
+            .footer-tagline {
+                display: none;
+            }
+
+        }
+
+        /* =========================================================
+           ACCESSIBILITY
+        ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration: 0.01ms !important;
+
+                animation-iteration-count: 1 !important;
+
+                scroll-behavior: auto !important;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="page">
+
+    <!-- Background Grid -->
+
+    <div class="grid"></div>
+
+
+    <!-- =========================================================
+         HEADER
+    ========================================================= -->
+
+    <header>
+
+        <div class="header-brand">
+
+            <div class="brand-line"></div>
+
+            <div class="brand-text">
+                SBEW Projects
+            </div>
+
+        </div>
+
+
+        <div class="status">
+
+            <span class="status-dot"></span>
+
+            Website Under Development
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         MAIN CONTENT
+    ========================================================= -->
+
+    <main>
+
+        <div class="content">
+
+
+            <!-- =====================================================
+                 LOGO
+            ====================================================== -->
+
+            <section class="logo-section">
+
+                <div class="logo-wrapper">
+
+                    <!--
+                        Put your logo here:
+                        assets/sbew-logo.png
+                    -->
+
+                    <img
+                        src="assets/sbew-logo.png"
+                        alt="SBEW Projects (Pty) Ltd"
+                        class="logo"
+                    >
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 TEXT
+            ====================================================== -->
+
+            <section class="text-section">
+
+
+                <div class="eyebrow">
+
+                    Bakery Machinery & Innovation
+
+                </div>
+
+
+                <h1>
+
+                    Engineering the
+
+                    <span>
+                        Future.
+                    </span>
+
+                </h1>
+
+
+                <p class="description">
+
+                    SBEW Projects (Pty) Ltd is developing innovative
+                    machinery and equipment solutions designed to
+                    simplify bakery production and improve operational
+                    efficiency.
+
+                    <br><br>
+
+                    Our focus is on developing practical technology
+                    that helps bakeries produce more efficiently,
+                    consistently and reliably.
+
+                    <br><br>
+
+                    Our new website is currently under construction.
+                    We look forward to introducing our solutions soon.
+
+                </p>
+
+
+                <!-- =================================================
+                     PROGRESS
+                ================================================== -->
+
+                <div class="progress-container">
+
+                    <div class="progress-top">
+
+                        <span class="progress-label">
+
+                            Website Development
+
+                        </span>
+
+                        <span class="progress-value">
+
+                            72%
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="progress-bar">
+
+                        <div class="progress-fill"></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     BUTTONS
+                ================================================== -->
+
+                <div class="actions">
+
+
+                    <a
+                        href="mailto:info@sbewprojects.co.za"
+                        class="btn btn-primary"
+                    >
+
+                        Get in Touch
+
+                        <span class="arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="#contact"
+                        class="btn btn-secondary"
+                    >
+
+                        Coming Soon
+
+                        <span class="arrow">
+                            ✦
+                        </span>
+
+                    </a>
+
+
+                </div>
+
+
+                <!-- =================================================
+                     COMPANY CONTACT INFORMATION
+                ================================================== -->
+
+                <div
+                    class="contact-card"
+                    id="contact"
+                >
+
+                    <div class="company-name">
+
+                        SBEW PROJECTS (PTY) LTD
+
+                    </div>
+
+
+                    <!-- Address -->
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            ◆
+                        </div>
+
+                        <div class="contact-content">
+
+                            <span class="contact-label">
+                                Office
+                            </span>
+
+                            <span class="contact-value">
+
+                                117 Van der Linde Road<br>
+
+                                Bramley View, 2090<br>
+
+                                Johannesburg, South Africa
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Email -->
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            @
+                        </div>
+
+                        <div class="contact-content">
+
+                            <span class="contact-label">
+                                Email
+                            </span>
+
+                            <a
+                                href="mailto:info@sbewprojects.co.za"
+                                class="contact-value"
+                            >
+
+                                info@sbewprojects.co.za
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Telephone -->
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            ☎
+                        </div>
+
+                        <div class="contact-content">
+
+                            <span class="contact-label">
+                                Telephone
+                            </span>
+
+                            <a
+                                href="tel:+27630303988"
+                                class="contact-value"
+                            >
+
+                                +27 63 030 3988
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
+    <footer>
+
+        <div class="copyright">
+
+            ©
+
+            <span id="year"></span>
+
+            SBEW Projects (Pty) Ltd.
+
+            All rights reserved.
+
+        </div>
+
+
+        <div class="footer-tagline">
+
+            Innovative Machinery
+            •
+            Smarter Production
+            •
+            Better Baking
+
+        </div>
+
+    </footer>
+
+
+    <div class="corner"></div>
+
+</div>
+
+
+<script>
+
+    /*
+     * Automatically update the copyright year.
+     */
+
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+</script>
+
+
+</body>
+
+</html>
+```
